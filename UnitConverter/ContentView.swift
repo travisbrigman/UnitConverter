@@ -39,7 +39,7 @@ struct ContentView: View {
                 Section(header: Text("pick a source unit")){
                     Picker("Unit", selection: $inputUnit) {
                         
-                        ForEach(0 ..< unitNames.count) {
+                        ForEach(0 ..< unitNames.count, id: \.self) {
                             //the magic here is the .symbol that keeps you from creating a dictionary, array of tuples, etc. to get strings to describe the unit in the UI. symbol is a string property itself.
                             Text("\(self.unitNames[$0].symbol)")
                         }
@@ -49,7 +49,7 @@ struct ContentView: View {
                 Section(header: Text("pick a destination unit")){
                     Picker("Unit", selection: $outputUnit) {
                         
-                        ForEach(0 ..< unitNames.count) {
+                        ForEach(0 ..< unitNames.count, id: \.self) {
                             Text("\(self.unitNames[$0].symbol)")
                         }
                     }
